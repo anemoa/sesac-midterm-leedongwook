@@ -1,13 +1,12 @@
 const TodoList = (sequelize, DataTypes) => {
     
-    const Todo = sequelize.define(
-        'todo',
+    const Todo = sequelize.define( 'todo',
         {
             id: {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 allowNull: false,
-                autoIncrement: true
+                autoIncrement: true,
             },
             title: {
                 type: DataTypes.STRING(255),
@@ -16,7 +15,7 @@ const TodoList = (sequelize, DataTypes) => {
             done: {
                 type: DataTypes.BOOLEAN,
                 allowNull: false,
-                defaulteValue: false
+                defaultValue: false,
             }
         }
     )
