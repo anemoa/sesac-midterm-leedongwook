@@ -43,6 +43,7 @@ li{
 
 input:checked~.content{
     color: red;
+    text-decoration: line-through;
 }
 
 @media screen and (min-width: 540px) and (max-width: 959px){
