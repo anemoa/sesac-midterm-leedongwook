@@ -14,7 +14,7 @@ app.use('/', router);
 sequelize
     // force: true; 서버 실행때 마다 테이블을 재 생성
     // force: false; 서버 실행시 테이블이 없으면 생성
-    .sync({ force: true })
+    .sync({ force: false })
     .then( () => {
         app.listen(PORT, () => {
             console.log(`Database 연결 성공!`);
