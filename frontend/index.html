@@ -10,25 +10,118 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <main id="container">
-        <section id="logo">
-            <h1><img src="./public/codingon.png" alt="코딩온 로고"></h1>
-        </section>
+    <div id="container">
+        <header id="logo">
+            <h1>
+                <img src="./public/codingon.png" alt="코딩온 로고">
+                <span class="todo_title">TODO LIST</span>
+            </h1>
+        </header>
 
-        <section id="todo_sec">
-            <form name="todo">
-                <input type="text" placeholder="today's todo">
-                <button type="submit">작성</button>
-            </form>
 
-            <ul id="todo_list">
-                <li>
-                    
-                </li>
-            </ul>
+        <main id="todo_cont">
+            <section id="todo_sec">
+                <form name="todo">
+                    <input type="text" name="illdo" id="illdo" placeholder="today's todo">
+                    <button button type="button" onclick="addTodo();">작성</button>
+                </form>
+    
+                <ul id="todo_list">
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp1</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+    
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp2</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+    
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp3</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+    
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp4</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+    
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp5</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+    
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp6</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+    
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp7</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+                   
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp8</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+    
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp9</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+    
+                    <li>
+                        <span class="todo_el">
+                            <input type="checkbox" name="" id="todo1">
+                            <span>todo_tpdp10</span>
+                        </span>
+    
+                        <button>X</button>
+                    </li>
+                </ul>
+    
+            </section>
+        </main>
 
-        </section>
-    </main>
+    </div>
 
 </body>
 </html>
