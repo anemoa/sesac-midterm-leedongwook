@@ -6,9 +6,19 @@ function getTodos(){
 
         const lists = json.slice(0, 10);
         const todoList = document.querySelector('#todo_list li');
-        for(i = 0; i < 10; i++){
-            todoList.textContent += lists[i].title;
-        }
+        // for(i = 0; i < 10; i++){
+        //     todoList.innerHTML += `
+        //     <li>
+        //         <span class="todo_el">
+        //             <input type="checkbox" name="" id="todo${i+1}">
+        //             <span>${lists[i].title}</span>
+        //         </span>
+
+        //         <button>X</button>
+        //     </li>
+        //     `;
+            
+        // }
 
     })
 }
