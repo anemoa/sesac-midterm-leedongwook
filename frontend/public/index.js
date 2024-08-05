@@ -1,61 +1,55 @@
-function getTodos(){
-    fetch('https://jsonplaceholder.typicode.com/todos')
-    .then(res => res.json())
-    .then( json => {
-        console.log(json.slice(0,10));
+const TodoList = document.querySelector('#todo_list');
 
-        const lists = json.slice(0, 10);
-        const todoList = document.querySelector('#todo_list li');
-        // for(i = 0; i < 10; i++){
-        //     todoList.innerHTML += `
-        //     <li>
-        //         <span class="todo_el">
-        //             <input type="checkbox" name="" id="todo${i+1}">
-        //             <span>${lists[i].title}</span>
-        //         </span>
+const getTodos = async () => {
 
-        //         <button>X</button>
-        //     </li>
-        //     `;
-            
-        // }
+    try{
+        const lists = await axios.get('https://jsonplaceholder.typicode.com/todos');
 
-    })
+        // console.log(lists.data.slice(0,10));
+
+        const listsLi = lists.data.slice(0,10);
+
+        listsLi.forEach(ele => {
+            // console.log(ele);
+            const todoLi = document.createElement('li');
+            todoLi.innerHTML = `
+                <span class="todo_el">
+                    <input type="checkbox" name="" id="todo${ele.id}">
+                    <span class="content">${ele.title}</span>
+                </span>
+                <button onclick="deleteBtn()">X</button>`;
+            TodoList.appendChild(todoLi);
+        });
+
+    }catch (error){
+        console.log(error);
+    }
+
 }
 
-getTodos();
-
-// document.addEventListener("DOMContentLoaded", ()=> {
-// 	getTodos();
-// });
+document.addEventListener("DOMContentLoaded", ()=> {
+	getTodos();
+});
 
 
 function addTodo(){
-    console.log('click fetch Post');
-    // 폼 선택하기
-    const form = document.forms['todo'];
+    const inputVal = document.querySelector('#illdo').value;
+    console.log(inputVal);
 
-    // 서버로 보낼 데이터 양식 생성하기
-    const data = {
-        illdo: form.illdo.value,
-    };
+    const newTodo = document.createElement('li');
+    newTodo.innerHTML = `
+        <span class="todo_el">
+            <input type="checkbox" name="" id="todo">
+            <span class="content">${inputVal}</span>
+        </span>
+        <button onclick="deleteBtn()"ㅛy>X</button>`;
 
-    // fetch: POST 요청시 headers 옵션을 통해 JSON 포맷을 사용한다고 알려줘야 함\
-    // => body에서도 json 형식으로 데이터를 바꿔 보내야 함
-    fetch(`fetch`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data), // js object를 json으로 바꿔서 body에 보내야 한다.
-    })
-        .then((res) => {
-            console.log(res);
-            return res.json(); // res 객체로부터 json 포맷의 응답을 js object로 변환
-        })
-        .then((data) => {
-            console.log(data); // js object
-            resultBox.textContent = `POST /fetch 요청에 의한 응답 완료! ${data.name}님은 ${data.gender}시군요`;
-            resultBox.style.color = 'violet';
-        });
+    TodoList.appendChild(newTodo);
+}
+
+
+function deleteBtn(event){
+    console.log(event);
+    const li = event.target.parentElement;
+    li.remove();
 }
